@@ -1,0 +1,46 @@
+﻿    <%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="taotrangweb.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+</head>
+<body>
+
+    <form id="form1" runat="server">
+        <div>
+            <table style="width:100%">
+                <tr>
+                    <td style="width:20%"> 
+                        <h1>LOẠI HÀNG</h1>
+                        <asp:DataList ID="dl_LoaiHang" runat="server" OnSelectedIndexChanged="dl_LoaiHang_SelectedIndexChanged">
+                            <ItemTemplate>
+                                <asp:LinkButton ID="LinkButton1" runat="server" Text='<%# Eval("TenLoai") %>' CommandArgument='<%# Eval("MaLoai") %>' OnClick="LinkButton1_Click"></asp:LinkButton>
+                            </ItemTemplate>
+                        </asp:DataList>
+                    </td>
+                    <td>
+                         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                        </asp:ContentPlaceHolder>
+                   
+                  
+
+                    </td>
+                    <td style="width:20%"> 
+                        <br />
+
+                        <asp:Login ID="Login1" runat="server" OnAuthenticate="Login1_Authenticate" TitleText="Đăng Nhập">
+                        </asp:Login>
+
+                    </td>
+                </tr>
+            </table>
+           
+        </div>
+    </form>
+</body>
+</html>
